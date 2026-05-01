@@ -1,0 +1,30 @@
+velocity = self._ego_car.get_velocity()
+speed = np.linalg.norm(np.array([velocity.x, velocity.y]))
+speed_reward = speed * 0.1
+lat_penalty = -0.5 *abs(observation["lateral_error"][0])
+steer_penalty = - 0.5 * abs(observation["steer_error"][0])
+self._reward = speed_reward + lat_penalty + steer_penalty
+
+deterministic = False
+throttle = 0.4
+
+Runing CARLA Metric Evaluation over 10 episodes....
+Episode 1 Finished | Survived: 307 steps | Max Error: 0.18
+Episode 2 Finished | Survived: 269 steps | Max Error: 0.30
+Episode 3 Finished | Survived: 107 steps | Max Error: 0.14
+Episode 4 Finished | Survived: 147 steps | Max Error: 0.08
+Episode 5 Finished | Survived: 2634 steps | Max Error: 0.36
+Episode 6 Finished | Survived: 57 steps | Max Error: 0.03
+Episode 7 Finished | Survived: 117 steps | Max Error: 0.49
+Episode 8 Finished | Survived: 517 steps | Max Error: 0.21
+Episode 9 Finished | Survived: 83 steps | Max Error: 0.06
+Episode 10 Finished | Survived: 812 steps | Max Error: 0.11
+
+========================================
+Final Driving Metric
+========================================
+Success Rate (Reached End): 100.0%
+Avg Survival Time         : 505.0 steps
+Avg Mean Lateral Time     : 0.050 meters
+Avg Max Lateral Time      : 0.195 meters
+========================================

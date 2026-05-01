@@ -1,0 +1,268 @@
+Using cuda device
+Wrapping the env in a DummyVecEnv.
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.03
+lateral: 0.508919894695282, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.21
+lateral: 0.508919894695282, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.16
+lateral: 0.508919894695282, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.78
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.61
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.54
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.60
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.32
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.20
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.87
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.62
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.55
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.31
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.14
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.23
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.34
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: 0.39
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.949 | Lat Penalty: -0.051 | Steer Penalty: -0.000 | Action: -0.33
+lateral: 0.5089200139045715, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.07
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.79
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.62
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.75
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.92
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.89
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.83
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 1.00
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.12
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.03
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.72
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.46
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: 0.41
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.964 | Lat Penalty: -0.036 | Steer Penalty: -0.000 | Action: -0.24
+lateral: -0.36139777302742004, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.21
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.24
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.21
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.78
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.98
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.30
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.82
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.36
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.13
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.75
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.43
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.67
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: 0.08
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.966 | Lat Penalty: -0.034 | Steer Penalty: -0.000 | Action: -0.27
+lateral: 0.3437140882015228, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.60
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.25
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.48
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.05
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.08
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.51
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.29
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.59
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.70
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.27
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.30
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.77
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.07
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 0.71
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -0.35
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.959 | Lat Penalty: -0.041 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.4140833020210266, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.06
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.28
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.84
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.69
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.31
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.83
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.91
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.35
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.59
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.73
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.91
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.62
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.04
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.78
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.28
+lateral: 0.24550534784793854, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.71
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.01
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.66
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.73
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.82
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.66
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.65
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.01
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.47
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.36
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: 0.96
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.58
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.87
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.15
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.975 | Lat Penalty: -0.025 | Steer Penalty: -0.000 | Action: -0.80
+lateral: 0.24529948830604553, width/2: 2.0
+Total Reward: 0.979 | Lat Penalty: -0.021 | Steer Penalty: -0.000 | Action: -1.00
+lateral: 0.20934203267097473, width/2: 2.0
+Total Reward: 0.979 | Lat Penalty: -0.021 | Steer Penalty: -0.000 | Action: -0.33
+lateral: 0.20934203267097473, width/2: 2.0
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 21       |
+|    ep_rew_mean     | 20.3     |
+| time/              |          |
+|    fps             | 174      |
+|    iterations      | 1        |
+|    time_elapsed    | 0        |
+|    total_timesteps | 128      |
+---------------------------------

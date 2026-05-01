@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "LaneKeeping"
+version = "0.0.1"
+dependencies = [
+    "gymnasium",
+    "numpy",
+]

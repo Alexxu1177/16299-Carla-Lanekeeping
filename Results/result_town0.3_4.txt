@@ -1,0 +1,33 @@
+speed = np.linalg.norm(np.array([velocity.x, velocity.y]))
+speed_reward = speed * 0.1
+
+lat_penalty = -0.5 *abs(observation["lateral_error"][0])
+steer_penalty = - 1.0 * abs(observation["steer_error"][0])
+steer_delta= abs(self._action - self._last_action)
+smoothness_penalty = -0.2 * steer_delta
+self._reward = speed_reward + lat_penalty + steer_penalty + smoothness_penalty
+self._last_action = self._action
+
+d= 0.5
+throttle = 0.4
+
+Runing CARLA Metric Evaluation over 10 episodes....
+Episode 1 Finished | Survived: 75 steps | Max Error: 0.01
+Episode 2 Finished | Survived: 622 steps | Max Error: 0.10
+Episode 3 Finished | Survived: 111 steps | Max Error: 0.11
+Episode 4 Finished | Survived: 550 steps | Max Error: 0.04
+Episode 5 Finished | Survived: 253 steps | Max Error: 0.43
+Episode 6 Finished | Survived: 145 steps | Max Error: 0.01
+Episode 7 Finished | Survived: 188 steps | Max Error: 0.01
+Episode 8 Finished | Survived: 93 steps | Max Error: 0.20
+Episode 9 Finished | Survived: 264 steps | Max Error: 0.05
+Episode 10 Finished | Survived: 199 steps | Max Error: 0.19
+
+========================================
+Final Driving Metric
+========================================
+Success Rate (Reached End): 100.0%
+Avg Survival Time         : 250.0 steps
+Avg Mean Lateral Time     : 0.033 meters
+Avg Max Lateral Time      : 0.114 meters
+========================================
