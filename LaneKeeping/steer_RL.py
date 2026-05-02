@@ -31,6 +31,7 @@ class laneEnv(gym.Env):
         settings = self._world.get_settings()
         settings.synchronous_mode = True
         settings.fixed_delta_seconds = 0.05
+        # set to True for no visual 
         settings.no_rendering_mode = True
         self._world.apply_settings(settings)
 
@@ -97,75 +98,6 @@ class laneEnv(gym.Env):
         cos_theta = np.clip(cos_theta, -1.0, 1.0)
 
         return math.acos(cos_theta)
-    
-    # it should calculate the lateral error and the steer_error
-    # def _get_obs(self):
-    #     # cur_waypoint = self._waypoint_list[self._cur_idx]
-    #     # passed = if_passed(self._ego_car, cur_waypoint)
-
-    #     base_waypoint = self._waypoint_list[self._cur_idx]
-    #     passed = if_passed(self._ego_car, base_waypoint)
-
-    #     # boundary check and check if the car has passed the previous waypoint
-    #     if (self._cur_idx+1 < len(self._waypoint_list)):
-    #         if (passed):
-    #             self._cur_idx += 1
-    #             cur_waypoint = self._waypoint_list[self._cur_idx]
-    #     else:
-    #         self._reach_end = True
-
-    #     look_ahead = 5
-    #     target_idx = min(self._cur_idx+ look_ahead, len(self._waypoint_list)-1)
-    #     cur_waypoint = self._waypoint_list[target_idx]
-
-    #     cur_waypoint_forward = cur_waypoint.transform.get_forward_vector()
-    #     w_forward_xy = carla.Vector3D(cur_waypoint_forward.x, cur_waypoint_forward.y, 0)
-
-    #     # calulate the lateral error
-    #     self._location = self._ego_car.get_transform().location
-    #     x = self._location.x
-    #     y = self._location.y
-    #     car_xy = carla.Vector3D(x, y, 0)
-
-    #     cur_waypoint_location = cur_waypoint.transform.location
-    #     w_x = cur_waypoint_location.x
-    #     w_y = cur_waypoint_location.y
-    #     w_xy = carla.Vector3D(w_x, w_y, 0)
-
-    #     v_xy = car_xy - w_xy
-    #     norm = np.linalg.norm(np.array([v_xy.x, v_xy.y]))
-
-    #     # compute the cross product to get the direction 
-    #     cross1 = v_xy.cross(w_forward_xy)
-    #     direction1 = 0
-    #     if (cross1.z < 0):
-    #         direction1 = -1
-    #     else:
-    #         direction1 = 1
-    #     theta = self.safe_angle(v_xy, w_forward_xy)
-    #     lateral_error = direction1 * norm * math.sin(theta)
-
-    #     # calculate the steer error
-    #     car_forward = self._ego_car.get_transform().get_forward_vector()
-    #     car_forward_xy = carla.Vector3D(car_forward.x, car_forward.y, 0)
-    #     steer_radian = self.safe_angle(car_forward_xy, w_forward_xy)
-    #     cross2 = car_forward_xy.cross(w_forward_xy)
-    #     direction2 = 0
-    #     if (cross2.z < 0):
-    #         direction2 = -1
-    #     else:
-    #         direction2 = 1
-    #     steer_angle = math.degrees(steer_radian)
-    #     cur_steer_error = (direction2 * steer_angle) / 180.0 # normalize to [-1, 1]
-    #     if not np.isfinite(lateral_error):
-    #         lateral_error = 0.0
-
-    #     if not np.isfinite(cur_steer_error):
-    #         cur_steer_error = 0.0
-        
-    #     lateral_error = np.clip(lateral_error, -10.0, 10.0)
-    #     cur_steer_error = np.clip(cur_steer_error, -1.0, 1.0)
-    #     return {"lateral_error": np.array([lateral_error], dtype = np.float32), "steer_error": np.array([cur_steer_error], dtype = np.float32)}
     
     def _get_obs(self):
         # 1. BASE WAYPOINT (Right under the car)
@@ -239,9 +171,6 @@ class laneEnv(gym.Env):
         self._episode_steps = 0
         self._max_lateral_error = 0.0
         self._last_action = 0.0
-
-        # spawn_point = self._spawn_points[0]
-        # self._ego_car = self._world.spawn_actor(self._ego_blueprint, spawn_point)
         
         # spawn the ego vihecle at a random spawn point on the map
         self._ego_car = self._world.spawn_actor(self._ego_blueprint, random.choice(self._spawn_points))
@@ -270,14 +199,12 @@ class laneEnv(gym.Env):
         self._action = float(action[0])
 
         # we FIRST apply the control to the ego car
-        # Change throttle (maybe 0.35 or 0.4) (0.5 too fast)
         self._ego_car.apply_control(carla.VehicleControl(throttle = 0.4, steer = self._action))
 
         # update the world
         self._world.tick()
 
         # we THEN get the observation
-        # Change here
         observation = self._get_obs()
         velocity = self._ego_car.get_velocity()
         speed = np.linalg.norm(np.array([velocity.x, velocity.y]))
@@ -289,6 +216,7 @@ class laneEnv(gym.Env):
         smoothness_penalty = -0.2 * steer_delta
         self._reward = speed_reward + lat_penalty + steer_penalty + smoothness_penalty
         self._last_action = self._action
+        # comment out print for training
         # print(f"Total Reward: {self._reward:.3f} | Lat Penalty: {lat_penalty:.3f} | Steer Penalty: {steer_penalty:.3f} | Action: {self._action:.2f}")
 
         #spectator pos update
@@ -304,7 +232,6 @@ class laneEnv(gym.Env):
         cur_waypoint = self._waypoint_list[self._cur_idx]
         width = cur_waypoint.lane_width
 
-        # print(f"lateral: {observation['lateral_error'][0]}, width/2: {width/2.0}")
 
         # if the car gets stuck, terminate (skip first 20 steps)rint(f"lateral: {observation['lateral_error'][0]}, width/2: {width/2.0}")
         self._step_count += 1

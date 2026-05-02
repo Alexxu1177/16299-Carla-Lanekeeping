@@ -1,15 +1,17 @@
+Example evaluation result for town03 for model lane_keeping_ppo4 (the best one):
+
 speed = np.linalg.norm(np.array([velocity.x, velocity.y]))
 speed_reward = speed * 0.1
-
 lat_penalty = -0.5 *abs(observation["lateral_error"][0])
 steer_penalty = - 1.0 * abs(observation["steer_error"][0])
 steer_delta= abs(self._action - self._last_action)
 smoothness_penalty = -0.2 * steer_delta
 self._reward = speed_reward + lat_penalty + steer_penalty + smoothness_penalty
 self._last_action = self._action
-
 d= 0.5
 throttle = 0.4
+
+Print outs:
 
 Runing CARLA Metric Evaluation over 10 episodes....
 Episode 1 Finished | Survived: 75 steps | Max Error: 0.01

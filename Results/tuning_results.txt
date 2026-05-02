@@ -1,3 +1,4 @@
+# Example of print out
 Using cuda device
 Wrapping the env in a DummyVecEnv.
 Total Reward: -0.378 | Lat Penalty: -0.378 | Steer Penalty: -0.000 | Action: -0.68

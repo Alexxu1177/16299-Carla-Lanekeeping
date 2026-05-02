@@ -5,6 +5,7 @@ from stable_baselines3 import PPO
 import time
 
 env = gym.make("LaneKeeping/steerRL-v0")
+# input in the model you want to evaluate
 model = PPO.load("lane_keeping_ppo3", env=env)
 
 episodes_to_test = 10
@@ -15,6 +16,7 @@ all_mean_lat_errors = []
 all_survival_steps = []
 success_count = 0
 
+# run episode testing
 for ep in range(episodes_to_test):
     obs, info = env.reset()
     done = False
@@ -22,6 +24,7 @@ for ep in range(episodes_to_test):
     while not done:
         action, _states = model.predict(obs, deterministic=True)
         obs, reward, terminated, truncated, info = env.step(action)
+        # uncomment time for visual
         # time.sleep(0.05)
         done = terminated or truncated
         if done:
