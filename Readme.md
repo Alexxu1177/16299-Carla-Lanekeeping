@@ -168,7 +168,9 @@ To reach our best-performing model, we implemented three critical changes:
 * Smoothness Penalty: We introduced a steer_delta penalty (-0.2) to discourage rapid steering fluctuations, resulting in a significantly more stable driving line.
 * Heading Prioritization: We doubled the weight of the steer_error penalty (to -1.0). This forced the agent to align more aggressively with future waypoints, allowing it to anticipate curves rather than reacting to them.
 * Path Resolution: We reduced the waypoint distance ($d$) to 0.5 meters. This higher-resolution path provided the agent with more frequent feedback, which was essential for maintaining a low mean lateral error of 0.033m at higher velocities.
+
 Final reward function: 
+
 $$R = \text{speed reward} - (1.0 \cdot e_{steer} + 0.5 \cdot e_{lat} + 0.2 \cdot e_{\text{steer delta}})$$
 
 ### References
