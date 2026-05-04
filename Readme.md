@@ -155,7 +155,9 @@ The majority of the project lifecycle was dedicated to the iterative process of 
 
 Phase 1: The Baseline Model
 Our initial approach utilized a conservative configuration with a simplified reward function:
+
 $$R = \text{speed reward} - 0.5 \cdot e_{steer} - 0.5 \cdot e_{lat}$$
+
 With a throttle of 0.3 and a sparse waypoint resolution ($d$) of 2.0 meters, the agent was able to navigate the track but did so with significant latency and low average speed.  While functional, this "slow-and-steady" policy lacked the precision needed for more complex maneuvers.  [Video of Initial Model Performance](https://drive.google.com/file/d/1pQK_nwMJJxryJVt2JcBxAPIl0f4A6eM_/view?usp=sharing)
 
 Phase 2: Addressing Instability
