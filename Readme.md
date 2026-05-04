@@ -21,12 +21,10 @@ Lane keeping is the process of maintaining a vehicle's position within the bound
 
 ### Motivation
 
-The motivation for perfecting lane-keeping algorithms is rooted in three critical areas:
+The motivation for perfecting lane-keeping algorithms is rooted in two critical areas:
 
 1. Enhancing Road Safety
-Human error remains the leading cause of traffic accidents worldwide.  According to data from the National Highway Traffic Safety Administration (NHTSA), a significant percentage of highway fatalities are the result of unintended lane departures caused by driver fatigue, distraction, or medical emergencies.
-
-The Solution: Automated lane-keeping systems act as a "digital safeguard," providing continuous monitoring and corrective steering to prevent "run-off-road" collisions.
+Human error remains the leading cause of traffic accidents worldwide.  According to data from the National Highway Traffic Safety Administration (NHTSA), a significant percentage of highway fatalities are the result of unintended lane departures caused by driver fatigue, distraction, or medical emergencies.  Automated lane-keeping systems act as a "digital safeguard," providing continuous monitoring and corrective steering to prevent "run-off-road" collisions.
 
 2. Foundational Control Complexity
 From a robotics perspective, lane keeping is not a trivial task. It requires a tight coupling between perception (identifying lane markers) and actuation (adjusting steering angles).
@@ -157,7 +155,7 @@ The majority of the project lifecycle was dedicated to the iterative process of 
 
 Phase 1: The Baseline Model
 Our initial approach utilized a conservative configuration with a simplified reward function:
-$$R = \text{speed\_reward} - 0.5 \cdot e_{steer} - 0.5 \cdot e_{lat}$$
+$$R = \text{speed reward} - 0.5 \cdot e_{steer} - 0.5 \cdot e_{lat}$$
 With a throttle of 0.3 and a sparse waypoint resolution ($d$) of 2.0 meters, the agent was able to navigate the track but did so with significant latency and low average speed.  While functional, this "slow-and-steady" policy lacked the precision needed for more complex maneuvers.  [Video of Initial Model Performance](https://drive.google.com/file/d/1pQK_nwMJJxryJVt2JcBxAPIl0f4A6eM_/view?usp=sharing)
 
 Phase 2: Addressing Instability
