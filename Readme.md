@@ -53,6 +53,31 @@ Survival steps quantify the robustness and longevity of the agent during a singl
 
 ### Carla Setup
 
+**Simulation Environment**
+The project is built on CARLA (version 0.9.x), an open-source autonomous driving simulator that provides high-fidelity urban environments with realistic vehicle physics.  CARLA serves as the "world" in which our RL agent learns to drive, providing real-time feedback on vehicle state, road geometry, and lane boundaries.
+
+**Gymnasium Integration**
+To interface the CARLA simulator with standard RL algorithm libraries, we engineered a custom Gymnasium-compatible environment class (`laneEnv`).  This wrapper translates the continuous, physics-driven CARLA simulation into the discrete `reset()`/`step()` loop required by the Gymnasium interface.  The four core functions — `__init__`, `reset`, `step`, and `render` — encapsulate all interactions between the RL agent and the simulator.
+
+**Synchronous Mode**
+CARLA is configured to run in synchronous mode with a fixed simulation timestep of 0.05 seconds (20 FPS).  In this mode, the simulation only advances when explicitly called via `world.tick()`, ensuring a strict sequential ordering of control application → physics update → state observation.  This deterministic execution is critical for RL training, as it guarantees that every observation corresponds exactly to the action that preceded it, eliminating the timing inconsistencies inherent in CARLA's default asynchronous mode.
+
+**Observation Space**
+The observation space is defined as a `gymnasium.spaces.Dict` containing two continuous values:
+* **Lateral Error**: The perpendicular distance (in meters) between the vehicle's center of gravity and the target waypoint's lane centerline.  The sign of this value, determined via a cross-product calculation, encodes whether the vehicle has deviated to the left or right of the lane center.
+* **Steer Error**: The angular misalignment between the vehicle's heading vector and the forward direction of the target waypoint, normalized to a $[-1, 1]$ range.  This provides the agent with directional awareness of how much it needs to correct its heading relative to the road's trajectory.
+
+**Action Space**
+The action space consists of a single continuous value in the range $[-1.0, 1.0]$, representing the normalized steering angle applied to the vehicle via `carla.VehicleControl`.  Throttle is held constant throughout each training configuration, decoupling the lateral control problem from longitudinal speed management.
+
+**Waypoint Tracking System**
+Upon each episode reset, the environment queries CARLA's high-definition map to generate an ordered list of waypoints along the current lane using `waypoint.next_until_lane_end(d)`, where $d$ is the configurable distance (in meters) between consecutive waypoints.  A geometric "pass detection" function determines when the vehicle has progressed beyond the current target waypoint, advancing the tracking index to the next waypoint in the sequence.  This forward-progressing mechanism inherently prevents oscillatory behavior, as the agent is always steering toward a point ahead rather than reacting to an already-passed reference.
+
+**Termination Conditions**
+An episode terminates under three conditions:
+1. **Lane Departure** (`terminated`): The absolute lateral error exceeds half the lane width (`lane_width / 2`), indicating the vehicle has exited the travel lane.
+2. **Collision/Stuck Detection** (`terminated`): The vehicle's velocity remains below a threshold (0.1 m/s) for a sustained period (after an initial grace period of 20 steps), indicating a collision with static geometry or a stalled state.
+3. **Route Completion** (`truncated`): The vehicle successfully reaches the final waypoint in the lane, signaling mission completion.
 ### Model Training
 
 To facilitate efficient training, the environment supports both high-fidelity visual feedback and high-throughput headless modes.
