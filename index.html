@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carla Lanekeeping — 16299 Final Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #181b24;
+      --border: #2a2e3a;
+      --text: #d4d6dc;
+      --text-muted: #8b8f9a;
+      --heading: #f0f1f4;
+      --accent: #5b9cf5;
+      --accent2: #7c6ef5;
+      --accent-glow: rgba(91, 156, 245, 0.12);
+      --code-bg: #1e2230;
+      --success: #4ade80;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .hero {
+      position: relative;
+      padding: 80px 24px 60px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(91,156,245,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Source Serif 4', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: var(--heading);
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .hero .authors {
+      margin-top: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    h2 {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.8rem;
+      color: var(--heading);
+      margin-bottom: 24px;
+      font-weight: 700;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 4px;
+      height: 24px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      color: var(--heading);
+      margin: 32px 0 12px;
+      font-weight: 600;
+    }
+
+    p { margin-bottom: 16px; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    strong { color: var(--heading); font-weight: 600; }
+
+    ul, ol {
+      margin: 12px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .video-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      margin: 16px 0;
+      transition: opacity 0.2s;
+      border-bottom: none;
+    }
+
+    .video-btn:hover { opacity: 0.85; border-bottom: none; }
+
+    .video-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 16px 0;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--success);
+      display: block;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--code-bg);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 0.88em;
+      color: var(--accent);
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      margin: 16px 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+
+    .math {
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin: 16px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--accent);
+      overflow-x: auto;
+    }
+
+    .phase {
+      border-left: 3px solid var(--border);
+      padding-left: 20px;
+      margin: 20px 0;
+    }
+
+    .phase-title {
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+
+    .ref-list {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .ref-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .ref-list li:last-child { border-bottom: none; }
+
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">16299 · Spring 2026</div>
+  <h1>Carla Lanekeeping</h1>
+  <p>An autonomous lane-keeping agent trained with Proximal Policy Optimization in the CARLA simulator.</p>
+  <div class="authors">Alex Xu &amp; Vicky Zhu</div>
+</div>
+
+<div class="container">
+
+  <!-- Video -->
+  <div class="section">
+    <h2>Final Project Report</h2>
+    <a class="video-btn" href="https://drive.google.com/file/d/1pCRysw866VCSPfoA9nWHS7UPhLVKljdw/view?usp=sharing" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Watch Best Model Video
+    </a>
+  </div>
+
+  <!-- Abstract -->
+  <div class="section">
+    <h2>Abstract</h2>
+    <p>This project develops and evaluates an autonomous driving agent specifically optimized for high-precision lane-keeping tasks. Utilizing the CARLA simulation environment, a custom Gymnasium-compatible wrapper was engineered to facilitate Reinforcement Learning (RL) training. The agent employs the Proximal Policy Optimization (PPO) algorithm to map a continuous action space (steering) from a simplified observation space consisting of lateral displacement and heading error.</p>
+    <p>To enhance driving stability, the system implements a look-ahead waypoint mechanism, allowing the agent to anticipate road curvature by calculating errors against future waypoints. The reward function is strategically shaped to balance three competing objectives: maintaining high velocity, minimizing lateral deviation from the lane center, and ensuring steering smoothness to prevent oscillations. Experimental results, derived from multi-episode evaluations in different maps, quantify performance through metrics including success rate, mean/max lateral error, and survival steps, providing a robust benchmark for RL-based lateral control stability.</p>
+  </div>
+
+  <!-- Introduction -->
+  <div class="section">
+    <h2>Introduction</h2>
+    <p>The development of autonomous vehicles (AVs) represents one of the most significant shifts in modern transportation, promising to redefine safety, efficiency, and accessibility. At the core of this transition is the ability of a vehicle to perceive its environment and make precise control decisions without human intervention. While high-level navigation involves complex path planning and obstacle avoidance, the most fundamental requirement for any autonomous agent is lateral control — specifically lane keeping.</p>
+    <p>Lane keeping is the process of maintaining a vehicle's position within the boundaries of a travel lane. It serves as the primary building block for Advanced Driver Assistance Systems (ADAS) and is the prerequisite for more complex maneuvers, such as lane changes, merging, and high-speed highway cruising.</p>
+  </div>
+
+  <!-- Motivation -->
+  <div class="section">
+    <h2>Motivation</h2>
+
+    <h3>1. Enhancing Road Safety</h3>
+    <p>Human error remains the leading cause of traffic accidents worldwide. According to data from the National Highway Traffic Safety Administration (NHTSA), a significant percentage of highway fatalities are the result of unintended lane departures caused by driver fatigue, distraction, or medical emergencies. Automated lane-keeping systems act as a "digital safeguard," providing continuous monitoring and corrective steering to prevent "run-off-road" collisions.</p>
+
+    <h3>2. Foundational Control Complexity</h3>
+    <p>From a robotics perspective, lane keeping is not a trivial task. It requires a tight coupling between perception (identifying lane markers) and actuation (adjusting steering angles).</p>
+    <p><strong>The Challenge:</strong> Vehicles are non-linear dynamical systems operating in varying conditions (different speeds, road curvatures, and weather). Traditional control methods, like PID or Model Predictive Control (MPC), often require extensive tuning and precise mathematical models of the vehicle.</p>
+    <p><strong>The RL Advantage:</strong> Using Proximal Policy Optimization (PPO) allows the agent to learn an optimal steering policy through trial and error in high-fidelity simulators like CARLA, enabling the system to adapt to complex road geometries without manual model linearization.</p>
+  </div>
+
+  <!-- Data Description -->
+  <div class="section">
+    <h2>Data Description</h2>
+
+    <h3>1. Success Rate</h3>
+    <p>The <strong>Success Rate</strong> is the primary mission-completion metric. It represents the percentage of test episodes where the vehicle successfully navigated the entire waypoint path without triggering a termination condition.</p>
+    <ul>
+      <li><strong>Calculation:</strong> <code>(Total Successful Episodes / Total Test Episodes) * 100</code></li>
+      <li><strong>Success Condition:</strong> Reaching the final waypoint in the <code>waypoint_list</code>.</li>
+      <li><strong>Failure Conditions:</strong> Vehicle exiting the lane boundaries or becoming stationary for an extended period.</li>
+    </ul>
+
+    <h3>2. Lateral Error</h3>
+    <p>Lateral error measures the perpendicular distance between the vehicle's center of gravity and the target trajectory (the centerline of the lane).</p>
+    <ul>
+      <li><strong>Mean Lateral Error:</strong> The average displacement over the duration of an episode. This indicates the agent's overall precision and smoothness in tracking the lane center.</li>
+      <li><strong>Max Lateral Error:</strong> The peak displacement recorded. This is a critical safety metric; a high max error indicates "swerving" or instability, even if the mean error remains low.</li>
+    </ul>
+
+    <h3>3. Survival Steps</h3>
+    <p>Survival steps quantify the robustness and longevity of the agent during a single episode.</p>
+    <ul>
+      <li><strong>Definition:</strong> The total number of simulation ticks (frames) elapsed before the episode ends.</li>
+      <li><strong>Utility:</strong> This is particularly useful during the early stages of training to track how long the model can "stay on the road" before failing, regardless of whether it reaches the final destination.</li>
+    </ul>
+  </div>
+
+  <!-- CARLA Setup -->
+  <div class="section">
+    <h2>CARLA Setup</h2>
+
+    <h3>Simulation Environment</h3>
+    <p>The project is built on CARLA (version 0.9.x), an open-source autonomous driving simulator that provides high-fidelity urban environments with realistic vehicle physics. CARLA serves as the "world" in which our RL agent learns to drive, providing real-time feedback on vehicle state, road geometry, and lane boundaries.</p>
+
+    <h3>Gymnasium Integration</h3>
+    <p>To interface the CARLA simulator with standard RL algorithm libraries, we engineered a custom Gymnasium-compatible environment class (<code>laneEnv</code>). This wrapper translates the continuous, physics-driven CARLA simulation into the discrete <code>reset()</code>/<code>step()</code> loop required by the Gymnasium interface. The four core functions — <code>__init__</code>, <code>reset</code>, <code>step</code>, and <code>render</code> — encapsulate all interactions between the RL agent and the simulator.</p>
+
+    <h3>Synchronous Mode</h3>
+    <p>CARLA is configured to run in synchronous mode with a fixed simulation timestep of 0.05 seconds (20 FPS). In this mode, the simulation only advances when explicitly called via <code>world.tick()</code>, ensuring a strict sequential ordering of control application → physics update → state observation. This deterministic execution is critical for RL training, as it guarantees that every observation corresponds exactly to the action that preceded it, eliminating the timing inconsistencies inherent in CARLA's default asynchronous mode.</p>
+
+    <h3>Observation Space</h3>
+    <p>The observation space is defined as a <code>gymnasium.spaces.Dict</code> containing two continuous values:</p>
+    <ul>
+      <li><strong>Lateral Error:</strong> The perpendicular distance (in meters) between the vehicle's center of gravity and the target waypoint's lane centerline. The sign of this value, determined via a cross-product calculation, encodes whether the vehicle has deviated to the left or right of the lane center.</li>
+      <li><strong>Steer Error:</strong> The angular misalignment between the vehicle's heading vector and the forward direction of the target waypoint, normalized to a [−1, 1] range. This provides the agent with directional awareness of how much it needs to correct its heading relative to the road's trajectory.</li>
+    </ul>
+
+    <h3>Action Space</h3>
+    <p>The action space consists of a single continuous value in the range [−1.0, 1.0], representing the normalized steering angle applied to the vehicle via <code>carla.VehicleControl</code>. Throttle is held constant throughout each training configuration, decoupling the lateral control problem from longitudinal speed management.</p>
+
+    <h3>Waypoint Tracking System</h3>
+    <p>Upon each episode reset, the environment queries CARLA's high-definition map to generate an ordered list of waypoints along the current lane using <code>waypoint.next_until_lane_end(d)</code>, where <em>d</em> is the configurable distance (in meters) between consecutive waypoints. A geometric "pass detection" function determines when the vehicle has progressed beyond the current target waypoint, advancing the tracking index to the next waypoint in the sequence. This forward-progressing mechanism inherently prevents oscillatory behavior, as the agent is always steering toward a point ahead rather than reacting to an already-passed reference.</p>
+
+    <h3>Termination Conditions</h3>
+    <p>An episode terminates under three conditions:</p>
+    <ol>
+      <li><strong>Lane Departure</strong> (<code>terminated</code>): The absolute lateral error exceeds half the lane width (<code>lane_width / 2</code>), indicating the vehicle has exited the travel lane.</li>
+      <li><strong>Collision/Stuck Detection</strong> (<code>terminated</code>): The vehicle's velocity remains below a threshold (0.1 m/s) for a sustained period (after an initial grace period of 20 steps), indicating a collision with static geometry or a stalled state.</li>
+      <li><strong>Route Completion</strong> (<code>truncated</code>): The vehicle successfully reaches the final waypoint in the lane, signaling mission completion.</li>
+    </ol>
+  </div>
+
+  <!-- Model Training -->
+  <div class="section">
+    <h2>Model Training</h2>
+    <p>To facilitate efficient training, the environment supports both high-fidelity visual feedback and high-throughput headless modes.</p>
+
+    <h3>Training with Visual Feedback</h3>
+    <p>Recommended for initial debugging and observing agent behavior in real-time:</p>
+    <ul>
+      <li>In <code>steer_RL.py</code>, set <code>settings.no_rendering_mode = False</code></li>
+      <li>Launch CARLA: <code>./CarlaUE4.sh -nosound</code></li>
+      <li>Initiate Training: <code>python3 train.py</code></li>
+    </ul>
+
+    <h3>Headless Training (High Performance)</h3>
+    <p>Recommended for long-running training sessions (e.g., 100k+ timesteps):</p>
+    <ul>
+      <li>In <code>steer_RL.py</code>, set <code>settings.no_rendering_mode = True</code></li>
+      <li>Launch CARLA: <code>./CarlaUE4.sh -nosound -RenderOffScreen -quality-level=low</code></li>
+      <li>Initiate Training: <code>python3 train.py</code></li>
+      <li>Use TensorBoard (<code>tensorboard --logdir ./ppo_carlalog</code>) to monitor convergence.</li>
+    </ul>
+
+    <h3>Hyperparameter Tuning Guide</h3>
+    <p>The performance of the lane keeping agent is highly sensitive to the interaction between the environment's resolution (<em>d</em>) and the RL agent's foresight (look-ahead).</p>
+
+    <div class="card">
+      <h3>1. Waypoint Resolution (<em>d</em>)</h3>
+      <p>In <code>steer_RL.py</code>, <code>d = 0.5</code> defines the distance between waypoints in meters. A smaller <em>d</em> provides a high-resolution path for the agent but increases computational overhead and can lead to "noisy" reward signals. A larger <em>d</em> simplifies the path but may cause the agent to "miss" the apex of sharp curves. If the car "oscillates" on straight lines, try increasing <em>d</em> slightly to smooth out the target trajectory.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Throttle Management</h3>
+      <p>The current throttle is fixed at 0.4. As speed increases, the lateral forces required to stay in the lane increase quadratically. If the agent masters the track at 0.4 but fails at 0.6, it likely needs a more aggressive smoothness penalty to prevent over-steering at high speeds.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Look-ahead Index</h3>
+      <p>The <code>look_ahead = 20</code> parameter determines which future waypoint is used to calculate steer_error. With <em>d</em>=0.5 and look_ahead=20, the agent is looking 10 meters into the future. A short look-ahead leads to "reactive" driving — the car stays centered on straights but reacts too late to curves. A long look-ahead leads to "anticipatory" driving — the car starts turning early, which might cause it to "cut" the inside of a corner.</p>
+    </div>
+
+    <div class="card">
+      <h3>4. Reward Function Shaping</h3>
+      <p>The reward function is the most critical component for balancing speed and safety:</p>
+      <div class="math">R = w₁ · speed − (w₂ · |e_lat| + w₃ · |e_steer| + w₄ · |Δsteer|)</div>
+      <ul>
+        <li><strong>Speed Reward (w₁):</strong> Prevents the agent from simply standing still to avoid penalties.</li>
+        <li><strong>Lateral Penalty (w₂):</strong> The primary constraint. High values here make the car "stiff" and centered.</li>
+        <li><strong>Steer Error Penalty (w₃):</strong> Encourages the car to align its heading with the road's future direction.</li>
+        <li><strong>Smoothness Penalty (w₄):</strong> Crucial for preventing "jitter." If the car's steering wheel is shaking rapidly, increase this weight to penalize high Δsteer values.</li>
+      </ul>
+    </div>
+
+    <h3>Algorithm Selection</h3>
+    <p>Proximal Policy Optimization (PPO) was chosen as the core learning algorithm because it provides a robust balance between performance and stability, which is critical for continuous control tasks like steering. Unlike older Reinforcement Learning methods that can be hypersensitive to hyperparameter changes — often leading to "catastrophic forgetting" where the agent suddenly loses all driving ability — PPO utilizes a clipped surrogate objective. This mechanism ensures that policy updates stay within a safe range, preventing the model from making erratic steering adjustments during the learning process.</p>
+    <p>Furthermore, PPO's Actor-Critic architecture allows the agent to effectively map continuous steering angles while simultaneously learning to predict the long-term value of its position within the lane. This makes it particularly well-suited for the CARLA environment, where the agent must navigate high-dimensional physics with a high degree of precision.</p>
+  </div>
+
+  <!-- Model Evaluation -->
+  <div class="section">
+    <h2>Model Evaluation</h2>
+    <p>Once training is complete, the model is transitioned from a probabilistic learning phase to a deterministic evaluation phase. This ensures that the agent always chooses the "best" known action rather than exploring random steering inputs.</p>
+
+    <h3>Evaluation Setup</h3>
+    <ul>
+      <li><strong>Episodes:</strong> 10 independent runs</li>
+      <li><strong>Map:</strong> Town03</li>
+      <li><strong>Configuration:</strong> <code>deterministic=True</code> to eliminate stochastic exploration noise</li>
+      <li><strong>Termination:</strong> Episodes end upon a lane departure (Lateral Error > Width/2) or reaching the final destination</li>
+    </ul>
+
+    <h3>Evaluation with Visual Feedback</h3>
+    <p>Recommended for qualitative analysis — observing how the car handles specific turns and curves:</p>
+    <ul>
+      <li>Set <code>settings.no_rendering_mode = False</code></li>
+      <li>Launch CARLA: <code>./CarlaUE4.sh -nosound</code></li>
+      <li>Run Evaluation: <code>python3 evaluate.py</code></li>
+    </ul>
+
+    <h3>Headless Evaluation (Metric Collection)</h3>
+    <p>Recommended for gathering quantitative data across many episodes quickly:</p>
+    <ul>
+      <li>Set <code>settings.no_rendering_mode = True</code></li>
+      <li>Launch CARLA: <code>./CarlaUE4.sh -nosound -RenderOffScreen -quality-level=low</code></li>
+      <li>Run Evaluation: <code>python3 evaluate.py</code></li>
+    </ul>
+  </div>
+
+  <!-- Results -->
+  <div class="section">
+    <h2>Conclusions &amp; Results</h2>
+
+    <h3>Training Performance</h3>
+    <p>The PPO agent was trained for 100,000 timesteps in the CARLA Town03 environment. The <code>ep_rew_mean</code> (mean episodic reward) exhibited a classic reinforcement learning curve:</p>
+    <ul>
+      <li><strong>Initial Phase (0k–20k steps):</strong> The agent struggled to maintain lane position, frequently incurring heavy penalties from the −50.0 terminal crash penalty, resulting in mean rewards below −60.</li>
+      <li><strong>Learning Phase (20k–70k steps):</strong> A sharp upward trend occurred as the agent discovered the relationship between the look-ahead waypoint and steering actuation.</li>
+      <li><strong>Convergence (70k–100k steps):</strong> The reward stabilized in positive territory, peaking at a smoothed value of approximately 11.86.</li>
+    </ul>
+
+    <h3>Quantitative Evaluation</h3>
+    <p>The best performing model (<code>lane_keeping_ppo4</code>) was evaluated over 10 deterministic episodes:</p>
+
+    <div class="metric-grid">
+      <div class="metric">
+        <span class="metric-value">100%</span>
+        <div class="metric-label">Success Rate</div>
+      </div>
+      <div class="metric">
+        <span class="metric-value">0.033m</span>
+        <div class="metric-label">Avg Mean Lateral Error</div>
+      </div>
+      <div class="metric">
+        <span class="metric-value">0.114m</span>
+        <div class="metric-label">Avg Max Lateral Error</div>
+      </div>
+      <div class="metric">
+        <span class="metric-value">250</span>
+        <div class="metric-label">Avg Survival Steps</div>
+      </div>
+    </div>
+
+    <p>The results demonstrate exceptional tracking accuracy; an average mean lateral error of just 3.3 cm suggests the vehicle remains almost perfectly centered. Even the "worst-case" deviation (11.4 cm) remains well within the safety margins of a standard lane width.</p>
+
+    <p>This project successfully implemented a robust lateral control system for autonomous lane keeping using PPO within the CARLA simulator. By carefully shaping the reward function to penalize lateral error and steering instability while incentivizing speed, we developed an agent capable of navigating the complex geometries of Town03, and other maps, with a 100% success rate. The integration of a look-ahead waypoint mechanism proved vital for stability, allowing the agent to anticipate curves rather than reacting to immediate errors. The evaluation metrics confirm that the RL-based approach can achieve sub-decimeter precision, rivaling traditional control methods like PID or Pure Pursuit, while maintaining the flexibility to learn directly from simulated physics.</p>
+  </div>
+
+  <!-- Reflection -->
+  <div class="section">
+    <h2>Reflection: Iterative Model Optimization</h2>
+    <p>The majority of the project lifecycle was dedicated to the iterative process of model training and hyperparameter fine-tuning. This process revealed the delicate balance required between vehicle velocity and lateral stability.</p>
+
+    <div class="phase">
+      <div class="phase-title">Phase 1: The Baseline Model</div>
+      <p>Our initial approach utilized a conservative configuration with a simplified reward function:</p>
+      <div class="math">R = speed reward − 0.5 · e_steer − 0.5 · e_lat</div>
+      <p>With a throttle of 0.3 and a sparse waypoint resolution (<em>d</em>) of 2.0 meters, the agent was able to navigate the track but did so with significant latency and low average speed. While functional, this "slow-and-steady" policy lacked the precision needed for more complex maneuvers.</p>
+      <a class="video-btn" href="https://drive.google.com/file/d/1pQK_nwMJJxryJVt2JcBxAPIl0f4A6eM_/view?usp=sharing" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Initial Model Video
+      </a>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title">Phase 2: Addressing Instability</div>
+      <p>As we attempted to increase the vehicle's speed, the agent began to exhibit high-frequency oscillations (the "jitter" effect). The initial reward function failed to penalize aggressive steering changes, causing the car to over-correct and eventually lose lane stability. We did tune the parameters of the reward function, however, it still wasn't enough.</p>
+      <a class="video-btn" href="https://drive.google.com/file/d/1jlyO6cjFCwlWOGzVbAwJ2zzVdzKKDGE5/view?usp=sharing" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Bad Performance Video
+      </a>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title">Phase 3: The Optimized Configuration</div>
+      <p>To reach our best-performing model, we implemented three critical changes:</p>
+      <ul>
+        <li><strong>Smoothness Penalty:</strong> We introduced a steer_delta penalty (−0.2) to discourage rapid steering fluctuations, resulting in a significantly more stable driving line.</li>
+        <li><strong>Heading Prioritization:</strong> We doubled the weight of the steer_error penalty (to −1.0). This forced the agent to align more aggressively with future waypoints, allowing it to anticipate curves rather than reacting to them.</li>
+        <li><strong>Path Resolution:</strong> We reduced the waypoint distance (<em>d</em>) to 0.5 meters. This higher-resolution path provided the agent with more frequent feedback, which was essential for maintaining a low mean lateral error of 0.033m at higher velocities.</li>
+      </ul>
+      <p>Final reward function:</p>
+      <div class="math">R = speed reward − (1.0 · e_steer + 0.5 · e_lat + 0.2 · e_steer_delta)</div>
+    </div>
+  </div>
+
+  <!-- References -->
+  <div class="section">
+    <h2>References</h2>
+    <ul class="ref-list">
+      <li>[1] Chen, Z., &amp; Huang, X. (2017). End-to-End Learning for Lane Keeping of Self-Driving Cars. <em>2017 IEEE Intelligent Vehicles Symposium (IV)</em>, 1856–1860. <a href="https://users.wpi.edu/~xhuang/pubs/2017_chen_iv.pdf" target="_blank">PDF</a></li>
+      <li>[2] Mancuso, A. (2018). Study and implementation of lane detection and lane keeping for autonomous driving vehicles [Master's thesis, Politecnico di Torino]. <a href="https://webthesis.biblio.polito.it/9514/1/tesi.pdf" target="_blank">WebThesis</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  16299 · Spring 2026 · Alex Xu &amp; Vicky Zhu
+</footer>
+
+</body>
+</html>
